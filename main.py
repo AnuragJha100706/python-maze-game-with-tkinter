@@ -602,6 +602,9 @@ if __name__ == "__main__":
 					current_state = STATE_GAMEOVER
 
 			elif current_state == STATE_GAMEOVER:
+				if last_result is None:
+					current_state = STATE_MENU
+					continue
 				mode, val = last_result
 				action = ui_file.endGame(mode, val, screen)
 				if action == "replay":
